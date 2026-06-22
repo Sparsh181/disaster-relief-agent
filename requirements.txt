@@ -3,3 +3,4 @@ python-dotenv
 streamlit
 pandas
 feedparser
+gdacs-api
