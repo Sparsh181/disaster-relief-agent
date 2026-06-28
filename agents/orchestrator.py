@@ -52,8 +52,8 @@ load_dotenv()
 # ── Model config ────────────────────────────────────────────
 # gemini-2.0-flash for all orchestration steps (lightweight, tool-calling only)
 # gemini-2.5-flash for impact agent only (heavy LLM reasoning)
-GEMINI_MODEL  = "gemini-2.0-flash"
-IMPACT_MODEL  = "gemini-2.5-flash"
+GEMINI_MODEL  = "gemini-2.5-pro"
+IMPACT_MODEL  = "gemini-2.5-pro"
 
 
 # ══════════════════════════════════════════════════════════
