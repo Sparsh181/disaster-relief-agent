@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { width: 380px; font-family: -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; }
+
+    .header { padding: 16px; background: #1e293b; border-bottom: 1px solid #334155; display: flex; align-items: center; gap: 10px; }
+    .header h1 { font-size: 15px; font-weight: 600; }
+    .header .subtitle { font-size: 11px; color: #94a3b8; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; }
+
+    .location-bar { padding: 10px 16px; background: #1e293b; border-bottom: 1px solid #334155; font-size: 11px; color: #94a3b8; }
+
+    .section-title { padding: 10px 16px 6px; font-size: 11px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    .alert-card { margin: 0 12px 8px; padding: 12px; background: #1e293b; border-radius: 8px; border-left: 3px solid #64748b; cursor: pointer; }
+    .alert-card.red    { border-left-color: #ef4444; }
+    .alert-card.orange { border-left-color: #f97316; }
+    .alert-card.green  { border-left-color: #22c55e; }
+    .alert-card:hover  { background: #263248; }
+
+    .alert-name  { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .alert-meta  { font-size: 11px; color: #94a3b8; display: flex; gap: 8px; }
+    .alert-badge { font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
+    .badge-red    { background: #7f1d1d; color: #fca5a5; }
+    .badge-orange { background: #7c2d12; color: #fdba74; }
+    .badge-green  { background: #14532d; color: #86efac; }
+
+    .empty { padding: 24px 16px; text-align: center; color: #64748b; font-size: 13px; }
+
+    .footer { padding: 10px 16px; border-top: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; }
+    .footer button { background: #2563eb; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 11px; cursor: pointer; }
+    .footer button:hover { background: #1d4ed8; }
+    .footer .last-update { font-size: 10px; color: #64748b; }
+
+    .loading { padding: 24px; text-align: center; color: #64748b; }
+    .spinner { display: inline-block; width: 20px; height: 20px; border: 2px solid #334155; border-top-color: #2563eb; border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .briefing-view { display: none; }
+    .briefing-view .back { padding: 10px 16px; cursor: pointer; color: #2563eb; font-size: 12px; border-bottom: 1px solid #334155; }
+    .briefing-view .back:hover { color: #60a5fa; }
+    .briefing-text { padding: 12px 16px; font-size: 12px; line-height: 1.6; white-space: pre-wrap; max-height: 400px; overflow-y: auto; color: #cbd5e1; }
+  </style>
+</head>
+<body>
+  <div id="main-view">
+    <div class="header">
+      <div class="status-dot" id="status-dot"></div>
+      <div>
+        <h1>🌍 Disaster Relief Agent</h1>
+        <div class="subtitle" id="subtitle">Connecting...</div>
+      </div>
+    </div>
+    <div class="location-bar" id="location-bar">📍 Detecting location...</div>
+    <div class="section-title">ACTIVE ALERTS NEAR YOU</div>
+    <div id="alerts-container"><div class="loading"><div class="spinner"></div></div></div>
+    <div class="footer">
+      <div class="last-update" id="last-update">Not updated yet</div>
+      <button onclick="refresh()">🔄 Refresh</button>
+    </div>
+  </div>
+
+  <div class="briefing-view" id="briefing-view">
+    <div class="back" onclick="showMain()">← Back to alerts</div>
+    <div class="briefing-text" id="briefing-text"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
