@@ -9,3 +9,4 @@ google-generativeai
 google-genai==2.9.0
 google-adk
 mcp
+uvicorn
