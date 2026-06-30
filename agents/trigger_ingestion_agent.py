@@ -66,11 +66,7 @@ class TriggerIngestionAgent:
 
             # Apply severity filter
             if parsed["alert_rank"] < self.min_rank:
-                # Special case: always include high-priority types
-                # even at Green (TC, FL, VO can be dangerous at Green)
-                if not (parsed["event_type"] in HIGH_PRIORITY_TYPES
-                        and parsed["alert_level"] == "Green"):
-                    continue
+                continue
 
             alerts.append(parsed)
 
