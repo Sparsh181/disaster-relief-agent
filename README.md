@@ -39,10 +39,6 @@ The client requires a system that supports both home delivery and takeaway. The 
 
 ---
 
-## **Use Case Diagram**
-
-![alt text](image.png)
----
 
 ## **Use Case Descriptions**
 
